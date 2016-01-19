@@ -23,21 +23,66 @@
 	<!-- Any other property in build.properties can also be overridden. -->
 
 	<property file="${user.home}/wpilib/wpilib.properties" />
+	<property file="base.properties" />
 	<property file="build.properties" />
 	<property file="${user.home}/wpilib/java/${version}/ant/build.properties" />
 
-	<target name="someTarget">
+	<target name="test-for-base">
 		<if>
-			<available file="/home/user/git/Team1389-Robot-Code-Base/export/Team1389-Robot-Code-Base.jar" />
+			<available file="${team1389base.loc}/.marker.txt" />
 			<then>
-				<echo>yup!</echo>
-	        </then>
+				<ant antfile="${team1389base.loc}/build.xml" useNativeBaseDir="true" target="jar-as-lib"/>
+			</then>
 			<else>
-			    <echo>nope!</echo>
-	        </else>
+				<echo message="check base.properties" level="error" />
+				<fail message="Team1389-Robot-Code-Base does not exist at specified location, check base.properties" />
+			</else>
 		</if>
 	</target>
 
 	<import file="${wpilib.ant.dir}/build.xml" />
+
+	<target name="jar" depends="test-for-base,compile">
+		<echo>[athena-jar] Making jar ${dist.jar}.</echo>
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${build.jars}" />
+
+		<echo>[athena-jar] Copying jars from ${classpath}:${userLibs} to ${build.jars}.</echo>
+		<copy todir="${build.jars}" flatten="true">
+			<path>
+				<pathelement path="${classpath}:${userLibs}" />
+			</path>
+		</copy>
+
+		<jar destfile="${dist.jar}" update="false">
+			<manifest>
+				<attribute name="Main-Class" value="edu.wpi.first.wpilibj.RobotBase" />
+				<attribute name="Robot-Class" value="${robot.class}" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+
+			<fileset dir="${build.dir}" includes="**/*.class" />
+
+			<zipgroupfileset dir="${build.jars}">
+				<include name="**/*.jar" />
+			</zipgroupfileset>
+		</jar>
+	</target>
+
+	<target name="jar-for-simulation" depends="test-for-base,compile">
+		<echo>[jar-for-simulation] Building jar.</echo>
+
+		<jar destfile="${simulation.dist.jar}">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Robot-Class" value="${robot.class}" />
+				<attribute name="Main-Class" value="edu.wpi.first.wpilibj.RobotBase" />
+			</manifest>
+			<fileset dir="${build.dir}" />
+			<zipgroupfileset dir="${wpilib.sim.lib}">
+				<include name="**/*.jar" />
+			</zipgroupfileset>
+		</jar>
+	</target>
 
 </project>
