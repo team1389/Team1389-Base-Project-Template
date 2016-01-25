@@ -13,4 +13,10 @@ public class TeleopMain extends TeleopBase{
 	public Command provideCommand() {
 		return null;//return the command here
 	}
+
+	@Override
+	public void setupTeleop() {
+		// TODO Auto-generated method stub
+		
+	}
 }
