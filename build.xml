@@ -31,9 +31,12 @@
 		<if>
 			<available file="${team1389base.loc}/.marker.txt" />
 			<then>
-				<ant antfile="${team1389base.loc}/build.xml" useNativeBaseDir="true" target="jar-as-lib"/>
+				<echo message="base found, running jar-as-lib target" />
+				<ant dir="${team1389base.loc}" antfile="build.xml" inheritall="false" target="jar-as-lib"/>
+				<echo message="done running base jar target" />
 			</then>
 			<else>
+				<echo message="current location: ${team1389base.loc}" />
 				<echo message="check base.properties" level="error" />
 				<fail message="Team1389-Robot-Code-Base does not exist at specified location, check base.properties" />
 			</else>
