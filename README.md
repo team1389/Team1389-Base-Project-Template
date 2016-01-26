@@ -3,9 +3,6 @@ Whenever you want to create a Team1389 project, use the following instructions:
 
 How to use:
 
-1. Clone Team1389-Robot-Code-Base
-2. Clone Team1389-Base-Project-Template
-3. In the base.properties file, set the location of the team1389base.loc variable to the path of the Team1389-Robot-Code-Base folder
-4. Delete git from the project by deleting the .git folder
-5. Delete as en eclipse project to remove old project name by deleting the .project file
-5. Whenever you want to make a project with the template, just copy and paste the Team1389-Base-Project-Template folder
+1. git Clone Team1389-Robot-Code-Base
+2. git Clone Team1389-Base-Project-Template
+3. copy+paste the Team1389-Base-Project-Template in 
