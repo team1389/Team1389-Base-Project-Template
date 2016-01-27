@@ -32,8 +32,6 @@ public class Robot implements RobotCode<IOLayout>{
 
 	@Override
 	public void setup() {
-		Subsystems.setup();
-		Globals.setup();
 		System.out.println("Robot is initialized");
 	}
 

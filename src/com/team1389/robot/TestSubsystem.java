@@ -4,6 +4,5 @@ import org.strongback.command.Requirable;
 
 public class TestSubsystem implements Requirable{
 	public TestSubsystem() {
-		
 	}
 }
