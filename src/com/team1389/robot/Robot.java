@@ -1,38 +1,44 @@
 package com.team1389.robot;
 
+import com.team1389.base.IO;
 import com.team1389.base.RobotCode;
 import com.team1389.base.Simulator;
+import com.team1389.base.Team1389RobotBase;
 import com.team1389.base.TeleopBase;
 import com.team1389.base.auton.AutonomousBase;
-import com.team1389.base.util.WebChartManager;
-import com.team1389.base.util.WebConstantManager;
-import com.team1389.base.webserver.chart.Chart;
-import com.team1389.base.webserver.chart.DataPoint;
 
 /**
  * This class defines where the teleop and auton bases are.
  * The code in this file wony usually have to be changed.
  */
-public class Robot implements RobotCode{
-
-	public TeleopBase getTeleopBase() {
-		return new TeleopMain();
+public class Robot implements RobotCode<IOLayout>{
+	TeleopMain teleopBase;
+	AutonomousMain autonomousBase;
+	IOLayout io;
+	
+	public Robot(IOLayout io) {
+		teleopBase = new TeleopMain();
+		autonomousBase = new AutonomousMain(io);
+		this.io = io;
 	}
 
-	public AutonomousBase getAutonomousBase() {
-		return new AutonomousMain();
+	public TeleopBase<IOLayout> getTeleopBase() {
+		return teleopBase;
+	}
+
+	public AutonomousBase<IOLayout> getAutonomousBase() {
+		return autonomousBase;
 	}
 
 	@Override
 	public void setup() {
-		Inputs.setup();
 		Subsystems.setup();
 		Globals.setup();
 		System.out.println("Robot is initialized");
 	}
 
-	//for running a lightweight simulation
-	public static void main(String[] args){
-		Simulator.simulate(new Robot());
+	@Override
+	public IOLayout getIO() {
+		return io;
 	}
 }

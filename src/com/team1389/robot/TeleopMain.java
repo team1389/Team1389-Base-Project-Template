@@ -1,22 +1,22 @@
 package com.team1389.robot;
 
-import com.team1389.base.TeleopBase;
+import org.strongback.command.Command;
 
-import edu.wpi.first.wpilibj.command.Command;
+import com.team1389.base.TeleopBase;
 
 //TODO: make this work the way AutonomousMain does, plus also a TestMain
 
-public class TeleopMain extends TeleopBase{
-
-	//This is the command that will run when teleop starts
-	@Override
-	public Command provideCommand() {
-		return null;//return the command here
-	}
+public class TeleopMain extends TeleopBase<IOLayout>{
 
 	@Override
-	public void setupTeleop() {
+	public void setupTeleop(IOLayout io) {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public  Command provideCommand(IOLayout io) {
+		return null;
+	}
+
 }
