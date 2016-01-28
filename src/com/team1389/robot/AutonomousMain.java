@@ -10,14 +10,16 @@ import com.team1389.base.auton.AutonomousBase;
  * This class defines which autonomous modes are available to be run. The first in the
  * list returned will be the default.
  */
-public class AutonomousMain extends AutonomousBase<IOLayout>{
+public class AutonomousMain extends AutonomousBase{
+	
+	RobotLayout layout;
 
-	public AutonomousMain(IOLayout io) {
-		super(io);
+	public AutonomousMain(RobotLayout layout) {
+		this.layout = layout;
 	}
 
 	@Override
-	public List<AutonMode> provideAutonModes(IOLayout io){
+	public List<AutonMode> provideAutonModes(){
 		ArrayList<AutonMode> modes = new ArrayList<AutonMode>();
 		
 		//add modes to mode list here

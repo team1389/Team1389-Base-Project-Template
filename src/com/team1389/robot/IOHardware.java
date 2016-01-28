@@ -1,11 +1,9 @@
 package com.team1389.robot;
 
-import org.strongback.hardware.Hardware;
-
-import edu.wpi.first.wpilibj.CANTalon;
-
 public class IOHardware extends IOLayout{
 	public IOHardware() {
-		wheel1 = Hardware.Motors.talonSRX(new CANTalon(0));
+		//setup io objects with hardware values. For example:
+//		leftDriveA = Hardware.Motors.talonSRX(new CANTalon(RobotMap.leftMotorA_CAN));
+//		leftDriveB = Hardware.Motors.talonSRX(new CANTalon(RobotMap.leftMotorB_CAN));
 	}
 }
