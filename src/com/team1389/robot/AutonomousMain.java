@@ -26,4 +26,10 @@ public class AutonomousMain extends AutonomousBase{
 		
 		return modes;
 	}
+
+	@Override
+	protected void setup() {
+		// TODO Auto-generated method stub
+		
+	}
 }
