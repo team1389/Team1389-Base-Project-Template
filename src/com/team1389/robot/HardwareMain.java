@@ -17,7 +17,7 @@ public class HardwareMain extends Team1389RobotBase{
 	RobotCode code;
 
 	public HardwareMain() {
-		IOLayout io = new IOHardware();
+		IOLayout io = new IOLayout();
 		RobotLayout layout = new RobotLayout(io, new Subsystems(io));
 		code = new Robot(layout);
 	}
