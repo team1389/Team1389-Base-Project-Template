@@ -7,4 +7,13 @@ package com.team1389.robot;
  * floating around.
  */
 public class RobotMap {
+  
+  public static final int
+    firstControllerID = 0,
+    secondControllerID = 1;
+    
+  // These will be useful in auton
+  public static final double
+    wheelDiameterInInches = 0, // TODO Find this out when the robot is ready
+    wheelCircumferenceInInches = Math.PI * wheelDiameterInInches;
 }
