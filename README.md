@@ -1,1 +1,1 @@
-This is our code for our 2017-bot established ahead-of-time. Make sure to clone the Team1389-Robot-Code-Base repo with this, otherwise the build will ALWAYS fail
+This is a template for our code for our 2017-bot established ahead-of-time. Make sure to clone the Team1389-Robot-Code-Base repo with this, otherwise the build will ALWAYS fail

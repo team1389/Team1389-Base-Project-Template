@@ -1,4 +1,4 @@
-package com.team1389.y2017.robot;
+package com.team1389.robot;
 
 import com.team1389.base.RobotLayoutType;
 

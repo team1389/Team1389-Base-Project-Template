@@ -1,6 +1,6 @@
-package com.team1389.y2017.robot;
+package com.team1389.robot;
 
-import com.team1389.y2017.robot.subsystems.*; // Without this we'd write a different import declaration for each subsystem
+import com.team1389.robot.subsystems.*; // Without this we'd write a different import declaration for each subsystem
 
 /**
  * Put subsystems in this class 
